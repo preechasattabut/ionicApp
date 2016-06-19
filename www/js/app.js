@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var page_home_control = angular.module('starter', ['ionic'])
+angular.module('starter', ['ionic'])
 
   .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
@@ -23,8 +23,23 @@ var page_home_control = angular.module('starter', ['ionic'])
     });
   })
 
-page_home_control.controller('home_control',function ($scope) {
-    $scope.bt_home = function () {
-      alert(555);
-    }
-});
+.controller('home_control',function ($scope, $http, $location) {
+  $scope.bt_home = function () {
+
+    var url=$location.path();
+    alert(url);
+  }
+})
+/*
+.controller('feedList',function ($scope, $http, $location) {
+  $scope.bt_home = function () {
+
+    var url=$location.path();
+    alert(url);
+  }
+})*/
+
+
+
+
+

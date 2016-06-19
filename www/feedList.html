@@ -19,21 +19,35 @@
   <script src="cordova.js"></script>
 
   <!-- your app's js -->
-  <script src="js/app.js"></script>
+  <script src="js/feedList.js"></script>
 </head>
-<body ng-app="starter" ng-controller="home_control">
+<body ng-app="feedApp" ng-controller="feedList">
 
 <ion-pane>
   <ion-header-bar class="bar-stable">
     <h1 class="title">Test Ionic App</h1>
   </ion-header-bar>
   <ion-content>
-    <div class="text">content</div>
-   <!-- <button ng-click="bt_home()"> click to link </button>-->
+
+    <div class="list">
+
+      <div ng-hide="{{$index=0}}">
+      </div>
+      <a ng-repeat="values in feed" class="item item-avatar" href="viewFeed.html#feedID={{$index}}">
+        <img src="" alt="{{charFirst}}">
+        <h2>{{values.title.__cdata}}</h2>
+        <p>{{values.description.__cdata}}</p>
+
+        <div ng-hide="{{$index+1}}">
+        </div>
+      </a>
 
 
-    <a href="feedList.html" class="button button-calm">click to view list</a>
-    </ion-content>
+    </div>
+
+    <p>{{myJsonData}}</p>
+
+  </ion-content>
   <ion-footer-bar>
     footer
   </ion-footer-bar>
